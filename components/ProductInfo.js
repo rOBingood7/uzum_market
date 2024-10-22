@@ -1,4 +1,7 @@
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 import { formatDate } from "../algorithms/formatDate";
+import { getData, postData } from "../lib/http.request";
 
 export function ProductInfo(item) {
   function createElement(tag, classes = [], content = "") {
@@ -125,6 +128,48 @@ export function ProductInfo(item) {
   const feedback_list = createElement("div", ["feedback_list"]);
   const rating_value = createElement("h3", ["rating_value"], item.rating);
 
+  const user_string = localStorage.getItem("user");
+  const user = JSON.parse(user_string);
+
+  add_to_cart.onclick = async (e) => {
+    const cartItems = await getData("/cart");
+
+    const exists = cartItems.data.some(
+      (cartItem) => cartItem.product.id === item.id
+    );
+
+    if (!exists && user) {
+      await postData("/cart", {
+        userId: user.id,
+        id: crypto.randomUUID(),
+        productId: item.id,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        product: item,
+      });
+
+      Toastify({
+        text: "Товар добавлен в корзину!",
+        gravity: "top",
+        position: "center",
+      }).showToast();
+      const updatedCartItems = await getData("/cart");
+      const cart_count = document.querySelector(".cart_count");
+      cart_count.innerHTML = updatedCartItems.data.length;
+    } else if (exists) {
+      Toastify({
+        text: "Товар уже есть в корзине!",
+        gravity: "top",
+        position: "center",
+      }).showToast();
+    } else {
+      Toastify({
+        text: "Войдите в аккаунт чтобы добавить товар в корзину!",
+        gravity: "top",
+        position: "center",
+      }).showToast();
+    }
+  };
   current_price.innerHTML =
     Math.ceil(
       (item.price - (item.price * item.discountPercentage) / 100) * 10000

@@ -86,6 +86,9 @@ export function Product(item) {
         gravity: "top",
         position: "center",
       }).showToast();
+      const updatedCartItems = await getData("/cart");
+      const cart_count = document.querySelector(".cart_count");
+      cart_count.innerHTML = updatedCartItems.data.length;
     } else if (exists) {
       Toastify({
         text: "Товар уже есть в корзине!",
