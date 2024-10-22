@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.registration_form {
+  display: grid;
+  gap: 10px;
+  align-items: center;
+}
+
+.registration_form h1 {
+  font-family: Gilroy;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 59.42px;
+  text-align: center;
+}
+
+.registration_form input,
+.registration_form select {
+  width: 450px;
+  height: 55px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+}
+
+.registration_form input::placeholder,
+.registration_form select::placeholder,
+.select_inside_input option {
+  padding-left: 25px;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.6px;
+  text-align: left;
+  color: #000000;
+}
+
+.registration_form button {
+  width: 450px;
+  height: 55px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Gilroy;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22.05px;
+  text-align: center;
+}
+
+.registration_form button:hover {
+  background: #0047ff;
+}
+
+.login_link {
+  margin-top: 30px;
+  color: #0047ff;
+  text-decoration: none;
+  font-family: Gilroy;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22.28px;
+  text-align: center;
+}
+
+.login_link:hover {
+  text-decoration: underline;
+}
+
+.error {
+  border: 3px solid red !important;
+}
+.correct {
+  border: 3px solid blue !important;
+}
