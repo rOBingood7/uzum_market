@@ -137,7 +137,7 @@ export function ProductInfo(item) {
     const exists = cartItems.data.some(
       (cartItem) => cartItem.product.id === item.id
     );
-
+    let quantity = 1;
     if (!exists && user) {
       await postData("/cart", {
         userId: user.id,
@@ -145,6 +145,7 @@ export function ProductInfo(item) {
         productId: item.id,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
+        quantity: quantity,
         product: item,
       });
 

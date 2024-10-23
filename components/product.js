@@ -28,22 +28,14 @@ export function Product(item) {
   product_rating.classList.add("product_rating");
   product_reviews.classList.add("product_reviews");
   product_rating_div.classList.add("product_rating_div");
+  let quantity = 1;
 
   const user_string = localStorage.getItem("user");
   const user = JSON.parse(user_string);
   product_name.innerHTML = item.title;
   product_rating.innerHTML = item.rating;
   product_reviews.innerHTML = `(${item.reviews.length}) отзывов`;
-  price_without_sale.innerHTML = (item.price * 10000)
-    .toFixed()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
-  price_with_sale.innerHTML =
-    Math.ceil(
-      (item.price - (item.price * item.discountPercentage) / 100) * 10000
-    )
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " сум";
   product_img.style.backgroundImage = `url(${item.images[0]})`;
   product.append(
     product_img,
@@ -76,10 +68,14 @@ export function Product(item) {
         userId: user.id,
         id: crypto.randomUUID(),
         productId: item.id,
+        quantity: quantity,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
         product: item,
       });
+
+      document.querySelector(".cart_count").innerHTML = cartItems.data.length;
+      document.querySelector(".cart_count").style.display = "block";
 
       Toastify({
         text: "Товар добавлен в корзину!",
@@ -138,6 +134,19 @@ export function Product(item) {
       }
     }
   };
+
+  price_without_sale.innerHTML = (item.price * 10000 * quantity)
+    .toFixed()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+  price_with_sale.innerHTML =
+    Math.ceil(
+      (item.price - (item.price * item.discountPercentage) / 100) *
+        10000 *
+        quantity
+    )
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " сум";
 
   return product;
 }

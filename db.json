@@ -1820,141 +1820,78 @@
   "favourites": [],
   "cart": [
     {
-      "id": "daffab56-952b-4c71-91b9-1218a0a992d7",
+      "id": "aaf122c6-b48d-4afa-9a69-d126d4cca9b1",
       "userId": "308dab41-836c-418d-9e72-704aca0cec07",
-      "productId": "16",
-      "createdAt": "2024-10-22T11:16:41.016Z",
-      "updatedAt": "2024-10-22T11:16:41.016Z",
+      "productId": "24",
+      "quantity": 1,
+      "createdAt": "2024-10-23T11:12:58.791Z",
+      "updatedAt": "2024-10-23T11:12:58.792Z",
       "product": {
-        "id": "16",
-        "title": "Apple",
-        "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
+        "id": "24",
+        "title": "Fish Steak",
+        "description": "Quality fish steak, suitable for grilling, baking, or pan-searing.",
         "category": "groceries",
-        "price": 1.99,
-        "discountPercentage": 1.97,
-        "rating": 2.96,
-        "stock": 9,
+        "price": 14.99,
+        "discountPercentage": 7,
+        "rating": 4.83,
+        "stock": 99,
         "tags": [
-          "fruits"
+          "seafood"
         ],
-        "sku": "QTROUV79",
+        "sku": "XNIH1MTA",
         "weight": 8,
         "dimensions": {
-          "width": 8.29,
-          "height": 5.58,
-          "depth": 12.41
+          "width": 20.14,
+          "height": 8.4,
+          "depth": 10.01
         },
-        "warrantyInformation": "2 year warranty",
-        "shippingInformation": "Ships in 2 weeks",
-        "availabilityStatus": "In Stock",
-        "reviews": [
-          {
-            "rating": 4,
-            "comment": "Great product!",
-            "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Logan Lee",
-            "reviewerEmail": "logan.lee@x.dummyjson.com"
-          },
-          {
-            "rating": 4,
-            "comment": "Great product!",
-            "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Elena Long",
-            "reviewerEmail": "elena.long@x.dummyjson.com"
-          },
-          {
-            "rating": 1,
-            "comment": "Not as described!",
-            "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Grayson Coleman",
-            "reviewerEmail": "grayson.coleman@x.dummyjson.com"
-          }
-        ],
-        "returnPolicy": "60 days return policy",
-        "minimumOrderQuantity": 44,
-        "meta": {
-          "createdAt": "2024-05-23T08:56:21.620Z",
-          "updatedAt": "2024-05-23T08:56:21.620Z",
-          "barcode": "2517819903837",
-          "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-        },
-        "images": [
-          "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"
-        ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png"
-      }
-    },
-    {
-      "id": "248ecddc-b9fa-494b-a048-2df43134d678",
-      "userId": "308dab41-836c-418d-9e72-704aca0cec07",
-      "productId": "20",
-      "createdAt": "2024-10-22T11:21:45.288Z",
-      "updatedAt": "2024-10-22T11:21:45.288Z",
-      "product": {
-        "id": "20",
-        "title": "Cooking Oil",
-        "description": "Versatile cooking oil suitable for frying, sautéing, and various culinary applications.",
-        "category": "groceries",
-        "price": 4.99,
-        "discountPercentage": 18.89,
-        "rating": 4.01,
-        "stock": 22,
-        "tags": [
-          "cooking essentials"
-        ],
-        "sku": "Q6ZP1UY8",
-        "weight": 8,
-        "dimensions": {
-          "width": 8.18,
-          "height": 27.45,
-          "depth": 27.88
-        },
-        "warrantyInformation": "Lifetime warranty",
+        "warrantyInformation": "1 year warranty",
         "shippingInformation": "Ships in 1 month",
         "availabilityStatus": "In Stock",
         "reviews": [
           {
             "rating": 5,
-            "comment": "Would buy again!",
+            "comment": "Great value for money!",
             "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Mason Parker",
-            "reviewerEmail": "mason.parker@x.dummyjson.com"
+            "reviewerName": "Michael Johnson",
+            "reviewerEmail": "michael.johnson@x.dummyjson.com"
           },
           {
-            "rating": 3,
-            "comment": "Poor quality!",
+            "rating": 4,
+            "comment": "Would buy again!",
             "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Jonathan Pierce",
-            "reviewerEmail": "jonathan.pierce@x.dummyjson.com"
+            "reviewerName": "Julian Newton",
+            "reviewerEmail": "julian.newton@x.dummyjson.com"
           },
           {
             "rating": 5,
-            "comment": "Would buy again!",
+            "comment": "Excellent quality!",
             "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Alexander Hernandez",
-            "reviewerEmail": "alexander.hernandez@x.dummyjson.com"
+            "reviewerName": "Lila Hudson",
+            "reviewerEmail": "lila.hudson@x.dummyjson.com"
           }
         ],
-        "returnPolicy": "60 days return policy",
-        "minimumOrderQuantity": 2,
+        "returnPolicy": "30 days return policy",
+        "minimumOrderQuantity": 49,
         "meta": {
           "createdAt": "2024-05-23T08:56:21.620Z",
           "updatedAt": "2024-05-23T08:56:21.620Z",
-          "barcode": "6707669443381",
+          "barcode": "4250692197342",
           "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
         },
         "images": [
-          "https://cdn.dummyjson.com/products/images/groceries/Cooking%20Oil/1.png"
+          "https://cdn.dummyjson.com/products/images/groceries/Fish%20Steak/1.png"
         ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Cooking%20Oil/thumbnail.png"
+        "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Fish%20Steak/thumbnail.png"
       }
     },
     {
-      "id": "12a88bca-0ab9-40b4-a80e-b6cd34bc42df",
+      "id": "fecb2aef-4985-4d79-93a4-4dbbf474d602",
       "userId": "308dab41-836c-418d-9e72-704aca0cec07",
       "productId": "5",
-      "createdAt": "2024-10-22T11:21:53.687Z",
-      "updatedAt": "2024-10-22T11:21:53.687Z",
+      "createdAt": "2024-10-23T11:19:02.433Z",
+      "updatedAt": "2024-10-23T11:19:02.433Z",
+      "quantity": 1,
       "product": {
         "id": "5",
         "title": "Red Nail Polish",
@@ -2017,69 +1954,69 @@
       }
     },
     {
-      "id": "a396e3af-406a-482c-bfe5-433190160536",
+      "id": "e0e93691-1342-4c1a-822b-aa1fbebb527b",
       "userId": "308dab41-836c-418d-9e72-704aca0cec07",
-      "productId": "19",
-      "createdAt": "2024-10-22T12:22:07.077Z",
-      "updatedAt": "2024-10-22T12:22:07.077Z",
+      "productId": "16",
+      "createdAt": "2024-10-23T11:19:11.024Z",
+      "updatedAt": "2024-10-23T11:19:11.024Z",
+      "quantity": 1,
       "product": {
-        "id": "19",
-        "title": "Chicken Meat",
-        "description": "Fresh and tender chicken meat, suitable for various culinary preparations.",
+        "id": "16",
+        "title": "Apple",
+        "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes.",
         "category": "groceries",
-        "price": 9.99,
-        "discountPercentage": 10.46,
-        "rating": 4.61,
-        "stock": 69,
+        "price": 1.99,
+        "discountPercentage": 1.97,
+        "rating": 2.96,
+        "stock": 9,
         "tags": [
-          "meat"
+          "fruits"
         ],
-        "sku": "G5YEHW7B",
-        "weight": 7,
+        "sku": "QTROUV79",
+        "weight": 8,
         "dimensions": {
-          "width": 15.96,
-          "height": 29.24,
-          "depth": 26.25
+          "width": 8.29,
+          "height": 5.58,
+          "depth": 12.41
         },
-        "warrantyInformation": "Lifetime warranty",
-        "shippingInformation": "Ships in 1 month",
+        "warrantyInformation": "2 year warranty",
+        "shippingInformation": "Ships in 2 weeks",
         "availabilityStatus": "In Stock",
         "reviews": [
           {
-            "rating": 5,
-            "comment": "Very satisfied!",
+            "rating": 4,
+            "comment": "Great product!",
             "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Sophia Jones",
-            "reviewerEmail": "sophia.jones@x.dummyjson.com"
-          },
-          {
-            "rating": 5,
-            "comment": "Great value for money!",
-            "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Maya Reed",
-            "reviewerEmail": "maya.reed@x.dummyjson.com"
+            "reviewerName": "Logan Lee",
+            "reviewerEmail": "logan.lee@x.dummyjson.com"
           },
           {
             "rating": 4,
-            "comment": "Highly recommended!",
+            "comment": "Great product!",
             "date": "2024-05-23T08:56:21.620Z",
-            "reviewerName": "Harper Turner",
-            "reviewerEmail": "harper.turner@x.dummyjson.com"
+            "reviewerName": "Elena Long",
+            "reviewerEmail": "elena.long@x.dummyjson.com"
+          },
+          {
+            "rating": 1,
+            "comment": "Not as described!",
+            "date": "2024-05-23T08:56:21.620Z",
+            "reviewerName": "Grayson Coleman",
+            "reviewerEmail": "grayson.coleman@x.dummyjson.com"
           }
         ],
-        "returnPolicy": "7 days return policy",
-        "minimumOrderQuantity": 46,
+        "returnPolicy": "60 days return policy",
+        "minimumOrderQuantity": 44,
         "meta": {
           "createdAt": "2024-05-23T08:56:21.620Z",
           "updatedAt": "2024-05-23T08:56:21.620Z",
-          "barcode": "0966223559510",
+          "barcode": "2517819903837",
           "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
         },
         "images": [
-          "https://cdn.dummyjson.com/products/images/groceries/Chicken%20Meat/1.png",
-          "https://cdn.dummyjson.com/products/images/groceries/Chicken%20Meat/2.png"
+          "https://cdn.dummyjson.com/products/images/groceries/Apple/1.png"
         ],
-        "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Chicken%20Meat/thumbnail.png"
+        "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png"
       }
     }
   ]

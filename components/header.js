@@ -110,6 +110,7 @@ export function Header() {
   async function cartIndicator() {
     try {
       const cart_products = await getData("/cart");
+
       cart_products.data.forEach((item) => {
         if (user && user.id === item.userId && cart_products.data.length > 0) {
           cart_count_div.style.display = "block";
