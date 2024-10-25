@@ -39,6 +39,9 @@ export function Slider(item) {
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " сум";
 
+  product_slider.onclick = () => {
+    location.assign(`/pages/product/?id=${item.id}`);
+  };
   product_image.style.backgroundImage = `url(${item.images[0]})`;
   product_info.append(product_name, product_brand);
   price_info.append(price_original, discount_badge);

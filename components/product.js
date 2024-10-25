@@ -102,13 +102,28 @@ export function Product(item) {
 
   favourites_img.onclick = async (e) => {
     e.stopPropagation();
+    try {
+      await postData("/favourites", {
+        userId: user.id,
+        id: crypto.randomUUID(),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        productId: item.id,
+        product: item,
+      });
+      favourites_img.classList.add("heart_filled");
+      favourites_img.classList.remove("favourites_img");
+    } catch (error) {
+      console.error("Error", error);
+    }
+    const res = await getData(`/favourites`);
 
     if (favourites_img.classList.contains("heart_filled")) {
       favourites_img.classList.remove("heart_filled");
       favourites_img.classList.add("favourites_img");
 
       try {
-        await deleteData(`/favourites?favouritesId=${item.id}`);
+        await deleteData(`/favourites?productId=${item.id}`);
       } catch (error) {
         console.error("Error deleting favourite:", error);
         favourites_img.classList.add("heart_filled");
@@ -117,21 +132,6 @@ export function Product(item) {
     } else {
       favourites_img.classList.add("heart_filled");
       favourites_img.classList.remove("favourites_img");
-
-      try {
-        await postData("/favourites", {
-          userId: user,
-          id: crypto.randomUUID(),
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-          product: item,
-          productId: item.id,
-        });
-      } catch (error) {
-        console.error("Error", error);
-        favourites_img.classList.remove("heart_filled");
-        favourites_img.classList.add("favourites_img");
-      }
     }
   };
 

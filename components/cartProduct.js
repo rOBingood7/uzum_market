@@ -64,6 +64,12 @@ export function cartProduct(item) {
   const updateTotalPrice = async () => {
     const cart_products = await getData("/cart");
 
+    document.querySelector(
+      ".cart_length"
+    ).innerHTML = `${cart_products.data.length} товар`;
+    document.querySelector(
+      ".cart_length_sum"
+    ).innerHTML = `Товары (${cart_products.data.length}):`;
     let totalSum = 0;
     let totalSaleSum = 0;
 
@@ -148,7 +154,40 @@ export function cartProduct(item) {
 
   delete_button.onclick = async () => {
     try {
-      await deleteData(`/cart/${item.id}`);
+      await deleteData("/cart/" + item.id, item);
+      const res = await getData("/cart");
+
+      const cart = document.querySelector(".cart");
+      const empty_cart = document.querySelector(".empty_cart");
+      const cart_count = document.querySelector(".cart_count");
+      const cart_length = document.querySelector(".cart_length");
+      const cart_length_sum = document.querySelector(".cart_length_sum");
+
+      let totalSum = 0;
+      let totalSaleSum = 0;
+      res.data.forEach((cartItem) => {
+        totalSum += Math.ceil(cartItem.product.price * 10000);
+        totalSaleSum += Math.ceil(
+          (cartItem.product.price -
+            (cartItem.product.price * cartItem.product.discountPercentage) /
+              100) *
+            10000
+        );
+      });
+      cart_length.innerHTML = `${res.data.length} товар`;
+      cart_length_sum.innerHTML = `Товары (${res.data.length}):`;
+      cart_count.innerHTML = res.data.length;
+      total_price_without_sale.innerHTML = `${totalSum
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} сум`;
+      total_price.innerHTML = `${totalSaleSum
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, " ")} сум`;
+      if (res.data.length === 0) {
+        cart.remove();
+        empty_cart.style.display = "flex";
+        cart_count.style.display = "none";
+      }
       cart_item.remove();
       await updateTotalPrice();
     } catch (error) {
