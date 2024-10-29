@@ -32,11 +32,15 @@ export function Product(item) {
 
   const user_string = localStorage.getItem("user");
   const user = JSON.parse(user_string);
-  product_name.innerHTML = item.title;
-  product_rating.innerHTML = item.rating;
-  product_reviews.innerHTML = `(${item.reviews.length}) отзывов`;
+  product_name.innerHTML = item.title || item.product.title;
+  product_rating.innerHTML = item.rating || item.product.rating;
+  product_reviews.innerHTML = `(${
+    (item.reviews?.length || item.product.reviews?.length) ?? 0
+  }) отзывов`;
 
-  product_img.style.backgroundImage = `url(${item.images[0]})`;
+  product_img.style.backgroundImage = `url(${
+    item.images?.[0] || item.product.images?.[0]
+  })`;
   product.append(
     product_img,
     product_name,
@@ -100,53 +104,69 @@ export function Product(item) {
     }
   };
 
-  favourites_img.onclick = async (e) => {
-    e.stopPropagation();
+  const checkIfFavorite = async () => {
     try {
-      await postData("/favourites", {
-        userId: user.id,
-        id: crypto.randomUUID(),
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        productId: item.id,
-        product: item,
-      });
-      favourites_img.classList.add("heart_filled");
-      favourites_img.classList.remove("favourites_img");
-    } catch (error) {
-      console.error("Error", error);
-    }
-    const res = await getData(`/favourites`);
+      const favourites = await getData(`/wishes`);
+      const isFavorite = favourites.data.some(
+        (fav) => fav.productId === item.id
+      );
 
-    if (favourites_img.classList.contains("heart_filled")) {
-      favourites_img.classList.remove("heart_filled");
-      favourites_img.classList.add("favourites_img");
-
-      try {
-        await deleteData(`/favourites?productId=${item.id}`);
-      } catch (error) {
-        console.error("Error deleting favourite:", error);
+      if (isFavorite) {
         favourites_img.classList.add("heart_filled");
         favourites_img.classList.remove("favourites_img");
+        return;
       }
-    } else {
-      favourites_img.classList.add("heart_filled");
-      favourites_img.classList.remove("favourites_img");
+    } catch (error) {
+      console.error("Error checking favorites:", error);
     }
   };
 
-  price_without_sale.innerHTML = (item.price * 10000 * quantity)
+  checkIfFavorite();
+
+  favourites_img.onclick = async (e) => {
+    e.stopPropagation();
+
+    try {
+      const isFavorite = favourites_img.classList.contains("heart_filled");
+
+      if (isFavorite) {
+        const favorite = await getData(`/wishes?productId=${item.id}`);
+
+        if (favorite.data.length > 0) {
+          await deleteData(`/wishes/${favorite.data[0].id}`);
+          favourites_img.classList.remove("heart_filled");
+          favourites_img.classList.add("favourites_img");
+        } else {
+          console.warn("Favorite item not found for deletion.");
+        }
+      } else {
+        await postData("/wishes", {
+          userId: user.id,
+          id: crypto.randomUUID(),
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          productId: item.id,
+          product: item,
+        });
+        favourites_img.classList.add("heart_filled");
+        favourites_img.classList.remove("favourites_img");
+      }
+    } catch (error) {
+      console.error("Error handling favorite toggle:", error);
+    }
+  };
+
+  const price = item.price || item.product.price || 0;
+  const discountPercentage =
+    item.discountPercentage || item.product.discountPercentage || 0;
+
+  price_without_sale.innerHTML = (price * 10000 * quantity)
     .toFixed()
     .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
   price_with_sale.innerHTML =
-    Math.ceil(
-      (item.price - (item.price * item.discountPercentage) / 100) *
-        10000 *
-        quantity
-    )
+    Math.ceil((price - (price * discountPercentage) / 100) * 10000 * quantity)
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " сум";
-
   return product;
 }

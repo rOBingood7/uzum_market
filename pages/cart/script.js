@@ -14,8 +14,8 @@ const products = await getData("/products");
 const user = JSON.parse(localStorage.getItem("user"));
 
 const cart = document.querySelector(".cart");
-const empty_cart = document.querySelector(".empty_cart");
-const main_page_btn = document.querySelector(".empty_cart button");
+const empty_cart = document.querySelector(".empty_div");
+const main_page_btn = document.querySelector(".empty_div button");
 const all_products = document.querySelector(".all_products");
 all_products.append(SectionDiv());
 const all_products_cont = document.querySelector(

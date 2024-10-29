@@ -9,9 +9,9 @@ export function Footer() {
   footer_container.classList.add("footer_container", "container");
   footer_bottom.classList.add("footer_bottom", "container");
 
-  privacy_link.href = "#";
+  privacy_link.href = "https://legal.uzum.uz/privacy-policy.html";
   privacy_link.innerHTML = "Соглашение о конфиденциальности";
-  user_agreement_link.href = "#";
+  user_agreement_link.href = "https://legal.uzum.uz/user-agreement-ru.html";
   user_agreement_link.innerHTML = "Пользовательское соглашение";
   footer_text.innerHTML =
     "«2024© ООО «UZUM MARKET». ИНН 309376127. Все права защищены»";
@@ -20,22 +20,22 @@ export function Footer() {
     {
       heading: "О нас",
       links: [
-        { text: "Пункты выдачи", href: "#" },
-        { text: "Вакансии", href: "#" },
+        { text: "Пункты выдачи", href: "https://uzum.uz/ru/about/delivery-points" },
+        { text: "Вакансии", href: "https://uzum.uz/ru/about/careers" },
       ],
     },
     {
       heading: "Пользователям",
       links: [
         { text: "Связаться с нами", href: "#" },
-        { text: "Вопрос - Ответ", href: "#" },
+        { text: "Вопрос - Ответ", href: "https://uzum.uz/ru/faq" },
       ],
     },
     {
       heading: "Для предпринимателей",
       links: [
-        { text: "Продавайте на Uzum", href: "#" },
-        { text: "Вход для продавцов", href: "#" },
+        { text: "Продавайте на Uzum", href: "https://seller.uzum.uz/" },
+        { text: "Вход для продавцов", href: "https://seller.uzum.uz/seller/signin" },
       ],
     },
   ];

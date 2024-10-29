@@ -34,6 +34,8 @@ export function cartProduct(item) {
   decrease_button.innerHTML = "−";
   increase_button.innerHTML = "+";
   delete_button.innerHTML = "Удалить";
+  console.log(item);
+  
   product_img.style.backgroundImage = `url(${item.product.images[0]})`;
 
   price_with_sale.innerHTML = formatPrice(
@@ -158,7 +160,7 @@ export function cartProduct(item) {
       const res = await getData("/cart");
 
       const cart = document.querySelector(".cart");
-      const empty_cart = document.querySelector(".empty_cart");
+      const empty_cart = document.querySelector(".empty_div");
       const cart_count = document.querySelector(".cart_count");
       const cart_length = document.querySelector(".cart_length");
       const cart_length_sum = document.querySelector(".cart_length_sum");
